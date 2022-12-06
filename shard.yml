@@ -1,0 +1,14 @@
+name: wiki-md
+version: 0.1.0
+
+authors:
+  - name <zbw@kaiyuanshe.org>>
+
+description: |
+  Generate markdown-organized wikis as static pages. 
+
+dependencies:
+  markd:
+    github: icyleaf/markd
+
+license: Apache 2.0
