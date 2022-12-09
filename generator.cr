@@ -25,6 +25,9 @@ files.each do |file|
             "[#{s}](#{s}.html)"
         end
         wiki_html = Markd.to_html(md)
+        wiki_html = wiki_html.gsub(/<img[^\>]+\/>/) do |img|
+            img.gsub(" />"," style=\"width:70%\" />")
+        end
         filename = file.split("/")[-1].gsub(".md"){".html"}
         if summary_html
             html = "<!DOCTYPE HTML>\n<html>"+
