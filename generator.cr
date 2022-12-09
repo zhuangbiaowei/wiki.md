@@ -27,12 +27,18 @@ files.each do |file|
         if summary_html
             html = "<!DOCTYPE HTML>\n<html>"+
                    "  <head>\n"+
-                   "  <meta charset=\"UTF-8\">\n"+
-                   "  <link rel=\"stylesheet\" href=\"layout.css\">\n"+
+                   "    <meta charset=\"UTF-8\">\n"+
+                   "    <link href=\"https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css\" rel=\"stylesheet\" />\n"+
+                   "    <script src=\"https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js\"></script>\n"+
                    "  </head>\n"+
                    "  <body>\n"+
-                   "    <div class=\"sidebar\">"+summary_html+"</div>\n"+
-                   "    <div class=\"content\">"+wiki_html+"</div>\n"+
+                   "    <div class=\"page-wrapper with-sidebar\">\n"+
+                   "      <div class=\"sidebar\" style=\"margin-left:10px\">\n"+
+                   "        <div class=\"sidebar-menu\">\n"+summary_html+
+                   "        </div>\n"+
+                   "      </div>\n"+                   
+                   "      <div class=\"content-wrapper\" style=\"margin-left:20px\">"+wiki_html+"</div>\n"+
+                   "    </div>\n"+
                    "  </body>\n"+
                    "</html>"
         else
@@ -41,17 +47,3 @@ files.each do |file|
         File.write("./wiki/"+filename, html)
     end
 end
-
-
-File.write "./wiki/layout.css", <<-STR
-.sidebar {
-    float: left;
-    width: 200px;
-    background-color: rgb(230, 230, 230);
-    height: 800px;
-}
-
-.content {
-    margin-left: 210px;
-}
-STR
