@@ -1,3 +1,5 @@
 # Key
 
-![](./assets/1.jpg)
+<img src="./assets/1.jpg" style="width:70%" />
+
+![](./assets/img.png)
