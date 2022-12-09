@@ -1,5 +1,7 @@
 require "markd"
 
+wiki_name = ARGV[0] ? ARGV[0] : "My Wiki"
+
 unless Dir.exists?("./wiki")
     Dir.mkdir("wiki")
 end
@@ -32,7 +34,10 @@ files.each do |file|
                    "    <script src=\"https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js\"></script>\n"+
                    "  </head>\n"+
                    "  <body>\n"+
-                   "    <div class=\"page-wrapper with-sidebar\">\n"+
+                   "    <div class=\"page-wrapper with-sidebar with-navbar\">\n"+
+                   "      <nav class="navbar">\n"+
+                   "        <a href=\"#\" class=\"navbar-brand\">\n"+wiki_name+"</a>\n"+
+                   "      </nav>\n"+
                    "      <div class=\"sidebar\" style=\"margin-left:10px\">\n"+
                    "        <div class=\"sidebar-menu\">\n"+summary_html+
                    "        </div>\n"+
