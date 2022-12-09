@@ -1,6 +1,6 @@
 require "markd"
 
-wiki_name = ARGV[0] ? ARGV[0] : "My Wiki"
+wiki_name = ARGV.size>0 ? ARGV[0] : "My Wiki"
 
 unless Dir.exists?("./wiki")
     Dir.mkdir("wiki")
@@ -35,8 +35,8 @@ files.each do |file|
                    "  </head>\n"+
                    "  <body>\n"+
                    "    <div class=\"page-wrapper with-sidebar with-navbar\">\n"+
-                   "      <nav class="navbar">\n"+
-                   "        <a href=\"#\" class=\"navbar-brand\">\n"+wiki_name+"</a>\n"+
+                   "      <nav class=\"navbar\">\n"+
+                   "        <a href=\"#\" class=\"navbar-brand\">"+wiki_name+"</a>\n"+
                    "      </nav>\n"+
                    "      <div class=\"sidebar\" style=\"margin-left:10px\">\n"+
                    "        <div class=\"sidebar-menu\">\n"+summary_html+

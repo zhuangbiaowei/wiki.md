@@ -18,7 +18,7 @@ jobs:
         with:
           crystal: 1.6.2
       - run: shards install
-      - run: crystal run generator.cr "My Wiki"
+      - run: crystal run generator.cr -- "Open Source Markdown Wiki"
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
