@@ -42,12 +42,28 @@ files.each do |file|
                    "        <div class=\"sidebar-menu\">\n"+summary_html+
                    "        </div>\n"+
                    "      </div>\n"+                   
-                   "      <div class=\"content-wrapper\" style=\"margin-left:20px\">"+wiki_html+"</div>\n"+
+                   "      <div class=\"content-wrapper\" style=\"margin-left:20px\">\n"+wiki_html+"\n"+
+                   "      </div>\n"+
                    "    </div>\n"+
                    "  </body>\n"+
                    "</html>"
         else
-            html = wiki_html
+            html = "<!DOCTYPE HTML>\n<html>"+
+                   "  <head>\n"+
+                   "    <meta charset=\"UTF-8\">\n"+
+                   "    <link href=\"https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css\" rel=\"stylesheet\" />\n"+
+                   "    <script src=\"https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js\"></script>\n"+
+                   "  </head>\n"+
+                   "  <body>\n"+
+                   "    <div class=\"page-wrapper with-navbar\">\n"+
+                   "      <nav class=\"navbar\">\n"+
+                   "        <a href=\"#\" class=\"navbar-brand\">"+wiki_name+"</a>\n"+
+                   "      </nav>\n"+
+                   "      <div class=\"content-wrapper\" style=\"margin-left:20px\">\n"+wiki_html+"\n"+
+                   "      </div>\n"+
+                   "    </div>\n"+
+                   "  </body>\n"+
+                   "</html>"
         end
         File.write("./wiki/"+filename, html)
     end
