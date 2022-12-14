@@ -2,3 +2,4 @@ lib/*
 wiki/*
 shard.lock
 src/.obsidian
+Gemfile.lock
