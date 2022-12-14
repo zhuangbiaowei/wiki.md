@@ -1,4 +1,5 @@
-require "markd"
+require "kramdown"
+require "kramdown-parser-gfm"
 
 wiki_name = ARGV.size>0 ? ARGV[0] : "My Wiki"
 
@@ -14,7 +15,7 @@ if File.exists?("./src/summary.md")
         s = s[2..-3]
         "[#{s}](#{s}.html)"
     end
-    summary_html = Markd.to_html(md)
+    summary_html = Kramdown::Document.new(md, input: 'GFM').to_html
 end
 
 files.each do |file|
@@ -24,7 +25,7 @@ files.each do |file|
             s = s[2..-3]
             "[#{s}](#{s}.html)"
         end
-        wiki_html = Markd.to_html(md)
+        wiki_html = Kramdown::Document.new(md, input: 'GFM').to_html
         filename = file.split("/")[-1].gsub(".md"){".html"}
         if summary_html
             html = "<!DOCTYPE HTML>\n<html>"+
