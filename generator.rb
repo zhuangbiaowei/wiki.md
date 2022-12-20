@@ -60,8 +60,26 @@ if File.exists?("./src/summary.md")
     summary_html = Kramdown::Document.new(md, input: 'GFM').to_html
 end
 
+References = {}
+
 files.each do |file|
     unless file=="./src/summary.md"
+        text = File.read(file)
+        text.gsub(/\[\[(.*)\]\]/) do |s|
+            s = s[2..-3]
+            item_name = file.split("/")[-1].gsub(".md","")
+            if References[s]
+                References[s] << item_name
+            else
+                References[s] = [item_name]
+            end
+        end
+    end
+end
+
+files.each do |file|
+    unless file=="./src/summary.md"
+        item_name = file.split("/")[-1].gsub(".md","")
         text = File.read(file)
         md = text.gsub(/\[\[(.*)\]\]/) do |s| 
             s = s[2..-3]
@@ -74,6 +92,14 @@ files.each do |file|
             md = mds[2..-1].join("---\n")
             meta_html = get_meta_html(meta)
         end
+        if References[item_name]
+            md += "\n\n\n"
+            md += "### References\n"
+            References[item_name].each do |item|
+                md += "* [#{item}](#{item}.html)\n"
+            end
+        end
+
         wiki_html = Kramdown::Document.new(md, input: 'GFM').to_html
         unless meta_html.empty?
             wiki_html = "<div class=\"container-fluid\" style=\"padding-top:20px\">\n" +
@@ -87,7 +113,7 @@ files.each do |file|
                         "  </div>\n" +
                         "</div>"
         end
-        filename = file.split("/")[-1].gsub(".md"){".html"}
+        filename = "./wiki/" + item_name + ".html"        
         if summary_html
             html = "<!DOCTYPE HTML>\n<html>"+
                    "  <head>\n"+
@@ -101,7 +127,7 @@ files.each do |file|
                    "        <a href=\"#\" class=\"navbar-brand\">"+wiki_name+"</a>\n"+
                    "      </nav>\n"+
                    "      <div class=\"sidebar\" style=\"margin-left:10px\">\n"+
-                   "        <div class=\"sidebar-menu\">\n"+summary_html+
+                   "        <div class=\"sidebar-menu font-size-12\">\n"+summary_html+
                    "        </div>\n"+
                    "      </div>\n"+                   
                    "      <div class=\"content-wrapper\" style=\"margin-left:20px\">\n"+wiki_html+"\n"+
@@ -127,6 +153,6 @@ files.each do |file|
                    "  </body>\n"+
                    "</html>"
         end
-        File.write("./wiki/"+filename, html)
+        File.write(filename, html)
     end
 end
