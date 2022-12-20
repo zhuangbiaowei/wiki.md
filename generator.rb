@@ -120,6 +120,10 @@ files.each do |file|
                    "    <meta charset=\"UTF-8\">\n"+
                    "    <link href=\"https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css\" rel=\"stylesheet\" />\n"+
                    "    <script src=\"https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js\"></script>\n"+
+                   "    <style>\n"+
+                   "      ul ul {margin: 10px 0 15px 20px}\n"+
+                   "      li {margin-bottom: 10px;}\n"+
+                   "    </style>\n"+
                    "  </head>\n"+
                    "  <body>\n"+
                    "    <div class=\"page-wrapper with-sidebar with-navbar\">\n"+
@@ -127,9 +131,9 @@ files.each do |file|
                    "        <a href=\"#\" class=\"navbar-brand\">"+wiki_name+"</a>\n"+
                    "      </nav>\n"+
                    "      <div class=\"sidebar\" style=\"margin-left:10px\">\n"+
-                   "        <div class=\"sidebar-menu font-size-12\">\n"+summary_html+
+                   "        <div class=\"sidebar-menu font-size-12\" style=\"margin-left:10px\">\n"+summary_html+
                    "        </div>\n"+
-                   "      </div>\n"+                   
+                   "      </div>\n"+
                    "      <div class=\"content-wrapper\" style=\"margin-left:20px\">\n"+wiki_html+"\n"+
                    "      </div>\n"+
                    "    </div>\n"+
