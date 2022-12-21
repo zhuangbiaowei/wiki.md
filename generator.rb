@@ -8,6 +8,25 @@ rescue
     {}
 end
 
+Giscus_HTML = <<END
+<script src="https://giscus.app/client.js"
+        data-repo="zhuangbiaowei/wiki.md"
+        data-repo-id="R_kgDOIkTcvA"
+        data-category="General"
+        data-category-id="DIC_kwDOIkTcvM4CTLWi"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+END
+
+
 def get_wiki_name
     if WIKI_CONFIG.empty?
         wiki_name = ARGV.size>0 ? ARGV[0] : "My Wiki"
@@ -135,6 +154,7 @@ files.each do |file|
                    "        </div>\n"+
                    "      </div>\n"+
                    "      <div class=\"content-wrapper\" style=\"margin-left:20px\">\n"+wiki_html+"\n"+
+                   Giscus_HTML +
                    "      </div>\n"+
                    "    </div>\n"+
                    "  </body>\n"+
@@ -152,6 +172,7 @@ files.each do |file|
                    "        <a href=\"#\" class=\"navbar-brand\">"+wiki_name+"</a>\n"+
                    "      </nav>\n"+
                    "      <div class=\"content-wrapper\" style=\"margin-left:20px\">\n"+wiki_html+"\n"+
+                   Giscus_HTML +
                    "      </div>\n"+
                    "    </div>\n"+
                    "  </body>\n"+
