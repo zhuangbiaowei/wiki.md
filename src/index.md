@@ -2,7 +2,7 @@
 
 ## 关键特性
 
-* 双向链接，使用``[[词汇]]``就能链接到另一个词条
+* 双向链接，使用 `[``[``词汇``]``]` 就能链接到另一个词条
 * 标准元数据，支持在正文前使用 [TOML](https://toml.io/) 格式
 * 完全基于 GitHub Action + GitHub Pages
 * 集成 [Giscus](https://giscus.app/)
