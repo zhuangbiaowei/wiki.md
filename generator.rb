@@ -117,7 +117,7 @@ References.each do |k,v|
             "id" => item,
             "name" => item,    
             "color" => "blue",
-            "val" => 2
+            "val" => ReverseReferences[item] ? ReverseReferences[item].size+1 : 1
         }
         Links << {
             "source" => item,
