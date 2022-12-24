@@ -36,55 +36,36 @@
         </div>
       </div>
       <div class="content-wrapper" style="margin-left:20px">
-<div class="container-fluid" style="padding-top:20px">
-  <div class="row">
-    <div class="col-xl-8">
-<h1 id="hello">Hello</h1>
+<h1 id="wikimd--一个基于-markdown-的-wiki-系统">wiki.md – 一个基于 Markdown 的 Wiki 系统</h1>
 
-<h2 id="key"><a href="key.html">key</a></h2>
+<h2 id="关键特性">关键特性</h2>
 
-<h2 id="新名词"><a href="新名词.html">新名词</a></h2>
-    </div>
-    <div class="col-xl-3 on-this-page-nav-container shadow" style="padding:10px" >
-<p class="text-center bg-primary font-size-14">生平</p>
-<table class="table font-size-12">
-<tr>
-<td>姓名</td><td>理查德·伯纳德·斯克尔顿 Richard Bernard Skelton</td>
-</tr>
-<tr>
-<td>出生</td><td>1913年7月18日</td>
-</tr>
-<tr>
-<td>逝世</td><td>1997年9月17日（84岁）</td>
-</tr>
-<tr>
-<td>儿女</td><td>瓦伦蒂娜·玛丽（Valentina Marie，1947年出生）<br />理查德·弗里曼（Richard Freeman），1948至1958年）</td>
-</tr>
-<tr>
-<td>活跃年代</td><td>1923至1993年</td>
-</tr>
-</table>
-<p class="text-center bg-primary font-size-14">奖项</p>
-<table class="table font-size-12">
-<tr>
-<td>艾美奖</td><td>1952年艾美奖最佳喜剧节目<br />1952年艾美奖最佳喜剧演员<br />1961年艾美奖最佳喜剧剧集编剧<br />1986年艾美奖主席奖<br />1989年美国电视艺术与科学学院电视名人堂</td>
-</tr>
-<tr>
-<td>金球奖</td><td>1978年塞西尔·B·德米尔奖，奖励他“对娱乐业的杰出贡献”</td>
-</tr>
-<tr>
-<td>美国喜剧奖</td><td>1989年美国喜剧奖终身成就奖</td>
-</tr>
-</table>
-<p class="text-center bg-primary font-size-14">测试</p>
-<table class="table font-size-12">
-<tr>
-<td>zbw</td><td>repo：wiki.md<br />branch：main<br />ref：1023fd<br /></td>
-</tr>
-</table>
-    </div>
-  </div>
-</div>
+<ul>
+  <li>双向链接，使用<code>[词汇](词汇.html)</code>就能链接到另一个词条</li>
+  <li>标准元数据，支持在正文前使用 <a href="https://toml.io/">TOML</a> 格式</li>
+  <li>完全基于 GitHub Action + GitHub Pages</li>
+  <li>集成 <a href="https://giscus.app/">Giscus</a></li>
+  <li>基于 <a href="https://github.com/vasturiano/force-graph">force-graph</a> 实现知识图谱</li>
+</ul>
+
+<h2 id="后续计划">后续计划</h2>
+
+<ul>
+  <li>支持<code>(（引用）)</code>其他 git 仓库的 markdown 段落</li>
+  <li>支持 <a href="https://www.mathjax.org/">MathJax</a></li>
+  <li>支持 <a href="https://echarts.apache.org/">Echarts</a></li>
+  <li>支持其他基于 Markdown 的扩展格式</li>
+</ul>
+
+<h2 id="特性展示页面">特性展示页面</h2>
+
+<ul>
+  <li><a href="元数据.html">元数据</a></li>
+  <li><a href="知识图谱.html">知识图谱</a></li>
+  <li><a href="评论页.html">评论页</a></li>
+  <li><a href="导航页.html">导航页</a></li>
+</ul>
+
 <script src="https://giscus.app/client.js"
         data-repo="zhuangbiaowei/wiki.md"
         data-repo-id="R_kgDOIkTcvA"
