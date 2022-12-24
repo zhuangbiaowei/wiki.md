@@ -114,8 +114,8 @@ References.each do |k,v|
             "val" => 2
         }
         Links << {
-            "source" => k,
-            "target" => item
+            "source" => item,
+            "target" => k
         }
     end
 end
