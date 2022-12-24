@@ -10,7 +10,7 @@
 
 ## 后续计划
 
-* 支持``(（引用）)``其他 git 仓库的 markdown 段落
+* 支持`(``(``引用``)``)`其他 git 仓库的 markdown 段落
 * 支持 [MathJax](https://www.mathjax.org/)
 * 支持 [Echarts](https://echarts.apache.org/)
 * 支持其他基于 Markdown 的扩展格式
