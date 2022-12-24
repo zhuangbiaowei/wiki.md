@@ -81,6 +81,7 @@ if File.exists?("./src/summary.md")
 end
 
 References = {}
+ReverseReferences = {}
 
 files.each do |file|
     unless file=="./src/summary.md"
@@ -93,6 +94,11 @@ files.each do |file|
             else
                 References[s] = [item_name]
             end
+            if ReverseReferences[item_name]
+                ReverseReferences[item_name] << s
+            else
+                ReverseReferences[item_name] = [s]
+            end
         end
     end
 end
@@ -104,7 +110,7 @@ References.each do |k,v|
         "id" => k,
         "name" => k,
         "color" => "blue",
-        "val" => v.size+1
+        "val" => ReverseReferences[k] ? ReverseReferences[k].size+1 : 1
     }
     v.each do |item|
         Nodes << {
