@@ -1,19 +1,23 @@
----
-["生平"]
-"姓名" = "理查德·伯纳德·斯克尔顿 Richard Bernard Skelton"
-"出生" = "1913年7月18日"
-"逝世" = "1997年9月17日（84岁）"
-"儿女" = ["瓦伦蒂娜·玛丽（Valentina Marie，1947年出生）", "理查德·弗里曼（Richard Freeman），1948至1958年）"]
-"活跃年代" = "1923至1993年"
-["奖项"]
-"艾美奖" = ["1952年艾美奖最佳喜剧节目","1952年艾美奖最佳喜剧演员","1961年艾美奖最佳喜剧剧集编剧","1986年艾美奖主席奖","1989年美国电视艺术与科学学院电视名人堂"]
-"金球奖" = "1978年塞西尔·B·德米尔奖，奖励他“对娱乐业的杰出贡献”"
-"美国喜剧奖" = "1989年美国喜剧奖终身成就奖"
-["测试"]
-zbw = {repo = "wiki.md", branch = "main", ref = "1023fd"}
----
-# Hello
+# wiki.md -- 一个基于 Markdown 的 Wiki 系统
 
-## [[key]]
+## 关键特性
 
-## [[新名词]]
+* 双向链接，使用``[[词汇]]``就能链接到另一个词条
+* 标准元数据，支持在正文前使用 [TOML](https://toml.io/) 格式
+* 完全基于 GitHub Action + GitHub Pages
+* 集成 [Giscus](https://giscus.app/)
+* 基于 [force-graph](https://github.com/vasturiano/force-graph) 实现知识图谱
+
+## 后续计划
+
+* 支持``(（引用）)``其他 git 仓库的 markdown 段落
+* 支持 [MathJax](https://www.mathjax.org/)
+* 支持 [Echarts](https://echarts.apache.org/)
+* 支持其他基于 Markdown 的扩展格式
+
+## 特性展示页面
+
+* [[元数据]]
+* [[知识图谱]]
+* [[评论页]]
+* [[导航页]]
