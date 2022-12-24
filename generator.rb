@@ -120,7 +120,7 @@ References.each do |k,v|
     end
 end
 
-Data = {"nodes"=>Nodes, "links"=>Links}
+Data = {"nodes"=>Nodes.uniq, "links"=>Links.uniq}
 
 f = File.new("./wiki/data.json", "w")
 f.puts JSON.generate(Data)
