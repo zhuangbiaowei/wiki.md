@@ -20,7 +20,8 @@ jobs:
       - run: bundle install
       - run: bundle exec ruby generator.rb
       - run: cp -r ./src/assets ./wiki/assets
-
+      - run: cp ./kg.html ./wiki/kg.html
+      
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}

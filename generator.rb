@@ -1,6 +1,7 @@
 require "kramdown"
 require "kramdown-parser-gfm"
 require 'tomlrb'
+require 'json'
 
 WIKI_CONFIG = begin
     Tomlrb.load_file("wiki.toml")
@@ -96,6 +97,35 @@ files.each do |file|
     end
 end
 
+Nodes = []
+Links = []
+References.each do |k,v|
+    Nodes << {
+        "id" => k,
+        "name" => k,
+        "color" => "blue",
+        "val" => v.size+1
+    }
+    v.each do |item|
+        Nodes << {
+            "id" => item,
+            "name" => item,    
+            "color" => "blue",
+            "val" => 2
+        }
+        Links << {
+            "source" => k,
+            "target" => item
+        }
+    end
+end
+
+Data = {"nodes"=>Nodes, "links"=>Links}
+
+f = File.new("./wiki/data.json", "w")
+f.puts JSON.generate(Data)
+f.close
+
 files.each do |file|
     unless file=="./src/summary.md"
         item_name = file.split("/")[-1].gsub(".md","")
@@ -147,7 +177,10 @@ files.each do |file|
                    "  <body>\n"+
                    "    <div class=\"page-wrapper with-sidebar with-navbar\">\n"+
                    "      <nav class=\"navbar\">\n"+
-                   "        <a href=\"#\" class=\"navbar-brand\">"+wiki_name+"</a>\n"+
+                   "        <a href=\"index.html\" class=\"navbar-brand\">"+wiki_name+"</a>\n"+
+                   "        <div class=\"navbar-content ml-auto\">\n"+
+                   "          <a href=\"kg.html\">Graph</a>\n"+
+                   "        </div>\n"+
                    "      </nav>\n"+
                    "      <div class=\"sidebar\" style=\"margin-left:10px\">\n"+
                    "        <div class=\"sidebar-menu font-size-12\" style=\"margin-left:10px\">\n"+summary_html+
@@ -169,7 +202,10 @@ files.each do |file|
                    "  <body>\n"+
                    "    <div class=\"page-wrapper with-navbar\">\n"+
                    "      <nav class=\"navbar\">\n"+
-                   "        <a href=\"#\" class=\"navbar-brand\">"+wiki_name+"</a>\n"+
+                   "        <a href=\"index.html\" class=\"navbar-brand\">"+wiki_name+"</a>\n"+
+                   "        <div class=\"navbar-content ml-auto\">\n"+
+                   "          <a href=\"kg.html\">Graph</a>\n"+
+                   "        </div>\n"+
                    "      </nav>\n"+
                    "      <div class=\"content-wrapper\" style=\"margin-left:20px\">\n"+wiki_html+"\n"+
                    Giscus_HTML +
