@@ -1,11 +1,14 @@
 [wiki]
 authors = ["Zhuang Biaowei"]
-language = "zh"
 src = "src"
 title = "Open Source Markdown Wiki"
 
 [preprocessor.citation]
 command = "ruby citation.rb"
+
+[languages]
+zh-cn = "简体中文"
+en = "English"
 
 [citation]
 zbw = {repo = "https://github.com/zhuangbiaowei/wiki.md", branch = "main", ref = ""}
