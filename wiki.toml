@@ -3,12 +3,26 @@ authors = ["Zhuang Biaowei"]
 src = "src"
 title = "Open Source Markdown Wiki"
 
-[preprocessor.citation]
-command = "ruby citation.rb"
+[preprocessing]
+backlinks = true
+
+[template]
+pages_template = "./template/pages.liquid"
+page_template = "./template/page.liquid"
+journals_template = "./template/index.liquid"
+journal_template = "./template/journal.liquid"
+knowledge_graph_template = "./template/kg.liquid"
+root_template = "./template/root.liquid"
 
 [languages]
 zh-cn = "简体中文"
 en = "English"
+
+[generate]
+publish_dir = "./site"
+assets_dir = "./assets"
+copy_files = ["./tree.js"]
+knowledge_graph = "/kg.html"
 
 [citation]
 zbw = {repo = "https://github.com/zhuangbiaowei/wiki.md", branch = "main", ref = ""}

@@ -18,9 +18,7 @@ jobs:
         with:
           ruby-version: '3.0'
       - run: bundle install
-      - run: bundle exec ruby generator.rb
-      - run: cp -r ./src/assets ./wiki/assets
-      - run: cp ./kg.html ./wiki/kg.html
+      - run: bundle exec ruby new_gen.rb
       
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
